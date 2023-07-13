@@ -1,0 +1,32 @@
+.courses {
+  .section2 {
+    .left {
+      order: 1;
+    }
+    .right {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .section2:nth-child(2),
+  .section2:nth-child(4) {
+    .left {
+      order: 1;
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .section2:nth-child(6) .left {
+    @include blockImageHover("#{$assetPath}/902-untitled-2%20(1).png");
+  }
+  .section2:nth-child(8) .left {
+    @include blockImageHover("#{$assetPath}/43.png");
+  }
+  .section2:nth-child(9) .left {
+    @include blockImageHover("#{$assetPath}/ict.jpg");
+  }
+}

@@ -1,0 +1,82 @@
+.login {
+  background: url("#{$assetPath}/login.png") no-repeat;
+  background-size: contain;
+  background-position: center center;
+  width: 100vw;
+  height: 100vh;
+  @include flexCenter();
+  .loginForm {
+    min-width: 540px;
+    min-height: 540px;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00000082;
+    @include flexCenter();
+    &__content {
+      width: 60%;
+      text-align: center;
+      h1 {
+        font-size: 3.5rem;
+        color: #01abbf;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 200;
+        span {
+          font-weight: weight(light);
+          font-size: 1.9rem;
+          display: block;
+          letter-spacing: 1px;
+          font-weight: 200;
+        }
+      }
+      & > p {
+        color: #666;
+        font-size: 1.2rem;
+        margin-top: 0.6rem;
+        margin-bottom: 3rem;
+      }
+      .loginInput {
+        @include flexCenter();
+        align-items: flex-end;
+        gap: 5px;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+        position: relative;
+        i {
+          font-size: 1.6rem;
+          color: #01abbf;
+        }
+        input {
+          border: none;
+          width: 100%;
+          background: transparent;
+          outline: none;
+          font-size: 1.6rem;
+          &::placeholder {
+            font-size: 1.6rem;
+          }
+        }
+      }
+      .remember {
+        @include flexCenter();
+        justify-content: space-between;
+        font-size: 1.4rem;
+        color: #01abbf;
+        a {
+          font-size: 1.4rem;
+          color: #01abbf;
+        }
+      }
+      .btn {
+        font-size: 1.6rem;
+        padding: 1rem;
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+}

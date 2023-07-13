@@ -1,0 +1,14 @@
+.features {
+  .callout {
+    padding: 12rem 0;
+    .block1x4 {
+      a {
+        font-size: 2rem;
+        @include ease-in();
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+}

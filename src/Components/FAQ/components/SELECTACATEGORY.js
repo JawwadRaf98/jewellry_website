@@ -4,7 +4,15 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import JewelryQuestion from "./Categories/JewelryQuestion";
 import Questions from "./Questions";
+import useFetch from "../../../customHooks/useFetch";
+import FaqSkeleton from "../../../website/skeleton/FaqSkeleton";
 const SELECTACATEGORY = () => {
+
+  const{data: Faq, loading, error} =useFetch('getFaq');
+
+  if(loading) return <FaqSkeleton />
+  const faqTitle = Object.keys(Faq)
+  console.log(faqTitle)
   return (
     <Container>
       <Row className="py-4 bbnn">
@@ -14,52 +22,37 @@ const SELECTACATEGORY = () => {
         <Tabs>
           <Col lg="12">
             <TabList>
-              <Tab>Jewelry</Tab>
-              <Tab>Damage Products</Tab>
-              <Tab>Return & Refunds</Tab>
-              <Tab>Deals and Promotions</Tab>
-              <Tab>LAVISA Point System</Tab>
-              <Tab>Other</Tab>
+              {
+                faqTitle.map( (item,index)=>{
+                  return(
+                    <Tab>{item.trim()}</Tab>
+                  )
+                 })
+              }
             </TabList>
           </Col>
 
           <Col lg="12">
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <Questions />
-                <JewelryQuestion />
-              </div>
-            </TabPanel>
+              {
+                faqTitle.map( (item,index)=>{
+
+                  const data = Faq[item]
+                  console.log(item , data)
+                return(
+                  <TabPanel>
+                    <div>
+                      <Questions />
+                      <JewelryQuestion  question={data}/>
+                    </div>
+                  </TabPanel>
+                  )
+                 })
+              }
+
+
+
+            
+            
           </Col>
         </Tabs>
       </Row>

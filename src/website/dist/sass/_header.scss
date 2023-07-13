@@ -1,0 +1,193 @@
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 2rem 0;
+  $header: &;
+  .block__inner {
+    justify-content: space-between;
+    gap: 0;
+    nav {
+      padding-top: 1rem;
+      @include flexCenter();
+      gap: 2rem;
+      .list {
+        gap: 3rem;
+        &__item {
+          @include flexCenter();
+          padding-bottom: 2rem;
+          position: relative;
+          &:hover {
+            .subMenu {
+              transform: translateX(-50%) scaleY(1);
+            }
+          }
+          a {
+            font-size: 1.6rem;
+            text-transform: capitalize;
+            color: #333;
+            @include ease-in;
+            display: block;
+            &.active,
+            &:hover {
+              color: $accent-color;
+            }
+            &.dashboard {
+              padding: 1.3rem 2rem;
+              background: #f2701d;
+              border-radius: 4rem;
+              color: #fff;
+              font-size: 1.4rem;
+              span {
+                @include flexCenter();
+                gap: 0.5rem;
+              }
+            }
+          }
+          .btn {
+            color: #fff;
+            &:hover {
+              color: #fff;
+            }
+          }
+          .subMenu {
+            background: #fff;
+            position: fixed;
+            padding: 1.5rem;
+            min-width: 80vw;
+            left: 50%;
+            top: 10rem;
+            border-radius: 2rem;
+            transform: translateX(-50%) scaleY(0);
+            @include flexCenter();
+            transform-origin: top;
+            @include ease-in();
+            flex-wrap: wrap;
+            .list__item {
+              display: inline-block;
+              padding: 0;
+              width: 22%;
+              a {
+                @include flexCenter();
+                gap: 1rem;
+                font-weight: weight(medium);
+                padding: 1.5rem;
+                color: #000;
+                position: relative;
+                font-size: 1.9rem;
+                span {
+                  @include flexCenter();
+                  gap: 1rem;
+                  z-index: 999;
+                  img {
+                    @include ease-in;
+                  }
+                }
+                &:hover {
+                  &::after {
+                    width: 100%;
+                  }
+                  img {
+                    transform: rotateY(360deg);
+                    filter: brightness(100);
+                  }
+                }
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 0%;
+                  height: 100%;
+                  @include ease-in();
+                  border-radius: 2rem;
+                }
+              }
+            }
+            .list__item:nth-child(1) a::after {
+              background-color: #01abbf3b;
+            }
+            .list__item:nth-child(2) a::after {
+              background-color: #b938953b;
+            }
+            .list__item:nth-child(3) a::after {
+              background-color: #f2701d3b;
+            }
+            .list__item:nth-child(4) a::after {
+              background-color: #fcc4293b;
+            }
+            .list__item:nth-child(5) a::after {
+              background-color: #01abbf3b;
+            }
+            .list__item:nth-child(6) a::after {
+              background-color: #b938953b;
+            }
+            .list__item:nth-child(6) a::after {
+              background-color: #f2701d3b;
+            }
+          }
+        }
+      }
+      .menuBar {
+        display: none;
+        span {
+          margin-bottom: 0.7rem;
+          display: block;
+          width: 4rem;
+          height: 2px;
+          background: #000;
+        }
+        span:last-child {
+          width: 3rem;
+        }
+      }
+    }
+  }
+  &.active {
+    position: fixed;
+    background: #fff;
+    z-index: 999;
+    padding: 0.5rem 0;
+    box-shadow: 1rem 1rem 1rem #ccc6;
+    animation: slideToTop 0.3s linear;
+    .block__inner nav .list__item {
+      padding-bottom: 1rem;
+      .subMenu {
+        top: 8rem;
+      }
+    }
+    .header__logo {
+      h1 {
+        font-size: 2rem;
+      }
+      h6 {
+        font-size: 1.6rem;
+      }
+      a img {
+        width: 7rem;
+      }
+    }
+  }
+}
+.header__logo a {
+  @include flexCenter();
+  gap: 2rem;
+  h1 {
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  h6 {
+    font-weight: weight(medium);
+    margin: 0;
+    white-space: nowrap;
+  }
+  img {
+    animation: logoShadow 5s linear infinite alternate;
+  }
+}
+.dropicon {
+  display: none;
+}

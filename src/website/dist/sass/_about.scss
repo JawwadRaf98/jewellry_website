@@ -1,0 +1,44 @@
+.about {
+  .commonBlock {
+    h3 {
+      font-size: 5rem;
+      font-weight: weight(medium);
+      color: $primary-color;
+      text-align: center;
+    }
+    .cards {
+      row-gap: 5rem;
+      column-gap: 2rem;
+      .card {
+        &__img {
+          img {
+            width: 100%;
+            @include ease-in();
+          }
+        }
+        &__body {
+          @include ease-in();
+          margin-top: 1px;
+          padding: 2rem 0 4rem 0;
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+          background: $secondary-color;
+          p {
+            margin: 0;
+            line-height: 1.4;
+            font-size: 1.9rem;
+            color: #fff;
+            text-align: center;
+          }
+        }
+        &:hover {
+          img {
+            filter: grayscale(1);
+          }
+          .card__body {
+            background: #393939;
+          }
+        }
+      }
+    }
+  }
+}

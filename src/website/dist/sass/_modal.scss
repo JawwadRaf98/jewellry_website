@@ -1,0 +1,187 @@
+.modal {
+
+  .editElForm {
+    overflow: visible !important;
+  }
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #0000004f;
+  @include flexCenter(row);
+  visibility: hidden;
+  opacity: 0;
+  @include ease-in(0.5s);
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  &Dialog {
+    width: 70%;
+    height: 85vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    @include ease-in(0.3s);
+    z-index: 9999;
+    overflow-y: auto;
+    background: white url("#{$assetPath}/32.png") no-repeat;
+    background-position: center center;
+  }
+  &Header {
+    background-color: transparent;
+  }
+  &Footer {
+    background-image: linear-gradient(313deg, #350e9f 0%, #a101b9 64%);
+    padding: 0.5rem 3rem;
+  }
+
+  &Header {
+    @include flexCenter(row);
+    color: #fff;
+    justify-content: flex-end;
+    padding: 1rem;
+    i {
+      font-size: 5rem;
+    }
+    .closeBtn {
+      background: transparent;
+      cursor: pointer;
+      position: absolute;
+      border: none;
+      transform: translate(1rem, 1rem);
+      margin-right: 1rem;
+      font-size: 3rem;
+      z-index: 999999;
+      i {
+        color: #000;
+      }
+    }
+  }
+  .modalBody {
+    flex: 1;
+    padding: 0.5rem 3rem;
+    text-align: center;
+    p {
+      margin-top: 2rem;
+    }
+    &__inner {
+      form {
+        .form__inner {
+          margin-top: 5rem;
+          @include flexCenter();
+          align-items: flex-start;
+
+          gap: 2rem;
+          .left,
+          .right {
+            width: 50%;
+          }
+          .left {
+            .inputGroup {
+              justify-content: flex-end;
+            }
+          }
+          .right {
+            .inputGroup {
+              justify-content: flex-start;
+              position: relative;
+              z-index: 1;
+            }
+          }
+        }
+        .btn {
+          width: 60%;
+          margin: 3rem auto;
+          text-align: center;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+[data-animation="topToBottom"] .modalDialog {
+  transform: translateY(-100%);
+  @include ease-in(0.3s);
+}
+
+[data-animation="topToBottom"].is-visible .modalDialog {
+  transform: none;
+}
+[data-animation="leftToRight"] .modalDialog {
+  transform: translateX(-100%);
+  transition: all 0.5s cubic-bezier(0.43, -0.24, 0.41, 1.48);
+}
+
+[data-animation="leftToRight"].is-visible .modalDialog {
+  transform: none;
+}
+[data-animation="flip"] .modalDialog {
+  transform: scaleY(0);
+  transition: all 0.5s;
+}
+
+[data-animation="flip"].is-visible .modalDialog {
+  transform: none;
+}
+body::-webkit-scrollbar-thumb {
+  background: #111d4b;
+  border-radius: 10px 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #2d2d2d;
+}
+.modalDialog::-webkit-scrollbar-thumb {
+  background: #111d4b;
+  border-radius: 10px 10px;
+}
+
+.modalDialog::-webkit-scrollbar {
+  width: 6px;
+  background-color: #fff;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+form
+  .inputGroup
+  input.react-time-picker__inputGroup__input.react-time-picker__inputGroup__minute,
+form
+  .inputGroup
+  input.react-time-picker__inputGroup__input.react-time-picker__inputGroup__hour {
+  height: 4rem;
+  border-radius: 0;
+  min-height: 2.7rem;
+  padding: 0;
+  width: 5rem !important;
+  text-align: center;
+}
+
+form
+  .inputGroup
+  select.react-time-picker__inputGroup__input.react-time-picker__inputGroup__amPm {
+  height: 4rem;
+  width: 7rem;
+  border-radius: 0;
+  padding: 0;
+}
+.react-time-picker__wrapper {
+  border: thin solid #fff;
+}
+.react-time-picker {
+  width: 100%;
+  padding: 0.2rem;
+  border: 1px solid #ddd;
+}
+button.react-time-picker__clear-button.react-time-picker__button,
+button.react-time-picker__clock-button.react-time-picker__button {
+  height: auto;
+}
+.react-time-picker__clock {
+  z-index: 99;
+}

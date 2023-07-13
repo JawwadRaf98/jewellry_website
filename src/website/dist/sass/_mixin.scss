@@ -1,0 +1,30 @@
+@mixin flexCenter($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin ease-in($timing: 0.3s) {
+  transition: all $timing ease-in-out;
+}
+
+@mixin blockImageHover($url) {  
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 0%;
+    -webkit-transition: 0.5s cubic-bezier(0.55, 0.06, 1, -0.1);
+    transition: 0.5s cubic-bezier(0.55, 0.06, 1, -0.1);
+    background-size: cover;
+    background-image: url($url);
+    -webkit-filter: drop-shadow(2px 4px 6px black);
+    filter: drop-shadow(2px 4px 6px black);
+  }
+  &:hover::after {
+    height: 100%;
+  }
+}

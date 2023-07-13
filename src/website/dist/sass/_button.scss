@@ -1,0 +1,40 @@
+.btn {
+  color: #fff;
+  text-transform: capitalize;
+  display: inline-block;
+  background: #350e9f;
+  padding: 1rem 2.5rem;
+  border-radius: 5rem;
+  @include ease-in();
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #fff;
+  background-image: linear-gradient(313deg, #350e9f 0%, #a101b9 64%);
+  text-align: center;
+  white-space: nowrap;
+  &.w-100 {
+    width: 100%;
+  }
+  span {
+    z-index: 9;
+    position: relative;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(313deg, #a101b9 0%, #350e9f 64%);
+    @include ease-in();
+  }
+  &:hover::after {
+    opacity: 1;
+    left: 0;
+  }
+}
+.btn:disabled {
+  filter: blur(2px);
+}

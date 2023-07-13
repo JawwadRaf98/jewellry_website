@@ -1,0 +1,55 @@
+.blog {
+  .commonBlock {
+    padding: 8rem 0;
+    .card {
+      box-shadow: 0 0 1rem #ccc6;
+      &__img {
+        img {
+          width: 100%;
+        }
+      }
+      &__body {
+        padding: 1rem 0 2rem 1rem;
+        span {
+          font-size: 1.6rem;
+          color: #ccc;
+          margin: 1rem 0;
+          display: block;
+        }
+        a {
+          font-weight: weight(medium);
+          font-size: 2rem;
+        }
+      }
+    }
+    .left {
+      width: 70%;
+    }
+    .right {
+      width: 30%;
+      .card {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+        box-shadow: none;
+        a {
+          font-size: 2rem;
+          display: block;
+          margin-bottom: 1rem;
+        }
+        span {
+          font-size: 1.6rem;
+          color: #ccc;
+        }
+      }
+    }
+    .block1x4 {
+      gap: 2rem;
+      .card {
+        a {
+          font-size: 1.4rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

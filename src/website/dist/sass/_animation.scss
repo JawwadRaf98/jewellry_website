@@ -1,0 +1,60 @@
+@keyframes logoShadow {
+  from {
+    filter: drop-shadow(2px 4px 6px black);
+  }
+  to {
+    filter: drop-shadow(2px 0px 0px rgba(255, 255, 255, 0));
+  }
+}
+@keyframes backgroundSlideshow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -500px 0;
+  }
+}
+@keyframes hoverPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loader {
+  from {
+    transform: translateY(-1rem);
+  }
+  to {
+    transform: translateY(1rem);
+  }
+}
+@keyframes loaderOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideToTop {
+  from {
+    transform: translateY(-10rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+@keyframes loaderOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

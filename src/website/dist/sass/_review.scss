@@ -1,0 +1,17 @@
+.review {
+  .youtubeBlock {
+    margin-top: 3rem;
+    iframe {
+      height: 50rem;
+      width: 100%;
+    }
+  }
+  .commonBlock {
+    .block1x3 {
+      gap: 2rem;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

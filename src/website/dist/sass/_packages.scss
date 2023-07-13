@@ -1,0 +1,47 @@
+.innerPage.packages {
+  .commonBlock {
+    border: none;
+    h6 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+  }
+  .section1 {
+    padding: 10rem 0 8rem 0;
+    h3 {
+      font-size: 3.6rem;
+      margin-bottom: 5rem;
+    }
+  }
+  .section2:nth-child(3) {
+    .left {
+      @include blockImageHover("#{$assetPath}/479-496-25.png");
+    }
+  }
+  .section2:nth-child(4) {
+    P {
+      font-weight: weight(light);
+      font-size: 2.2rem;
+    }
+    .block1x2:nth-child(1) {
+      justify-content: flex-start;
+      .left {
+        order: 1;
+        @include blockImageHover("#{$assetPath}/129-23.png");
+      }
+      .right {
+        order: 2;
+      }
+    }
+    .block1x2:nth-child(2) {
+      .left {
+        @include blockImageHover("#{$assetPath}/771-24.png");
+      }
+    }
+  }
+  .section2:nth-child(6) {
+    .left {
+      @include blockImageHover("#{$assetPath}/526-26.png");
+    }
+  }
+}

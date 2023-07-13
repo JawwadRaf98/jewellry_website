@@ -1,0 +1,75 @@
+.innerPage {
+  .commonBlock {
+    border-bottom: 1rem solid #01abbf;
+    .block1x2 {
+      justify-content: flex-end;
+      align-items: center;
+      h2 {
+        font-size: 3.6rem;
+      }
+      h4 {
+        font-size: 3.6rem;
+        color: $primary-color;
+      }
+      h3 {
+        font-size: 2.2rem;
+        font-weight: weight(regular);
+      }
+      p {
+        font-size: 2rem;
+        color: #080808;
+        font-weight: weight(medium);
+      }
+      .left {
+        width: 45%;
+        position: relative;
+        order: 1;
+      }
+      .list {
+        h2 {
+          color: #350ea0;
+          font-size: 2.4rem;
+          margin: 3rem 0;
+        }
+      }
+      .right {
+        border-radius: 2rem 0 0 2rem;
+        overflow: hidden;
+        position: relative;
+      }
+    }
+    .services {
+      margin-top: 8rem;
+      .card {
+        padding: 3.5rem 3.5rem;
+        @include ease-in();
+        &:hover {
+          filter: grayscale(1);
+        }
+        h3 {
+          font-size: 2rem;
+          font-weight: weight(medium);
+          color: #fff;
+        }
+        h5 {
+          color: #fff;
+          font-size: 2.4rem;
+          font-weight: weight(bold);
+          margin: 0;
+        }
+      }
+      .card:nth-child(1) {
+        background: #01abbf;
+      }
+      .card:nth-child(2) {
+        background: #b93895;
+      }
+      .card:nth-child(3) {
+        background: #f2701d;
+      }
+      .card:nth-child(4) {
+        background: #fcc429;
+      }
+    }
+  }
+}

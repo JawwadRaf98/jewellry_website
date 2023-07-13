@@ -1,0 +1,91 @@
+.footer {
+  position: relative;
+  .whatsapp {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 5rem;
+  }
+  &__top {
+    .block__inner {
+      background: url("#{$assetPath}/19.png");
+      padding: 6rem 2rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      animation: backgroundSlideshow 30s linear infinite alternate-reverse;
+      .header__logo {
+        justify-content: flex-start;
+      }
+      a {
+        font-size: 1.4rem;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      .left {
+        width: 37%;
+        a {
+          display: block;
+          margin: 2rem 0;
+        }
+        span {
+          font-size: 1.4rem;
+          color: $primary-color;
+          font-weight: weight(medium);
+        }
+        .fastestGrowing {
+          width: 50%;
+        }
+      }
+      .right {
+        width: 63%;
+        p {
+          color: gray;
+          font-size: 1.6rem;
+        }
+        .column {
+          text-transform: capitalize;
+          h5 {
+            font-size: 1.6rem;
+          }
+          li {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    border-top: 1px solid #cdcdcd;
+    .block__inner {
+      justify-content: space-between;
+      p {
+        font-size: 1.4rem;
+        a {
+          font-size: 1.4rem;
+          color: $primary-color;
+        }
+      }
+      .imedia {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        a {
+          font-size: 1.4rem;
+          line-height: 1;
+        }
+        .m_text {
+          display: flex;
+          flex-direction: column;
+          a {
+            font-family: "gil";
+            font-size: 1.8rem;
+          }
+          .digital_media {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

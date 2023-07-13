@@ -1,0 +1,250 @@
+.shop {
+  &__inner {
+    padding: 8rem 0;
+    .commonBlock {
+      border: none;
+    }
+    .shopHeader {
+      @include flexCenter();
+      gap: 0.5rem;
+      .btn {
+        border-radius: 0;
+        width: 20%;
+        font-size: 2.4rem;
+        padding: 1.5rem 0;
+        color: #454545;
+        background: #f6f6f6;
+        border: 0.5px solid #ccc;
+        font-weight: weight(medium);
+        &.active,
+        &:hover {
+          background-image: linear-gradient(313deg, #350e9f 0%, #a101b9 64%);
+          color: #fff;
+        }
+      }
+    }
+    .shopBody {
+      .shopSoftware {
+        &__table {
+          & > h3 {
+            margin: 10rem 0;
+            font-size: 3.6rem;
+            color: $primary-color;
+          }
+          .row {
+            display: grid;
+            grid-template: auto/ repeat(4, 1fr);
+          }
+          &--header {
+            border: 0.5px solid #ccc;
+            margin-bottom: 1rem;
+            .column {
+              .top {
+                padding: 2rem;
+              }
+              .bottom {
+                padding: 0 1rem;
+              }
+              h4 {
+                font-size: 2rem;
+                margin: 0;
+                color: #fff;
+                text-align: center;
+              }
+              h6 {
+                color: #01abbf;
+                font-size: 3rem;
+                text-align: center;
+                span {
+                  font-size: 1.3rem;
+                }
+              }
+              .btn {
+                width: fit-content;
+                margin: 1rem auto;
+                display: inherit;
+              }
+            }
+            .column:nth-child(1) {
+              background: #dedede url("#{$assetPath}/27.png") no-repeat;
+              background-position-y: 20%;
+              background-position-x: 96%;
+              h4 {
+                font-size: 3rem;
+                margin: 1rem;
+                color: #333;
+                text-align: left;
+              }
+            }
+            .column:nth-child(2) {
+              .top {
+                background: #01abbf;
+              }
+            }
+            .column:nth-child(3) {
+              .top {
+                background: $secondary-color;
+              }
+              h6 {
+                color: $secondary-color;
+              }
+            }
+            .column:nth-child(4) {
+              .top {
+                background: $accent-color;
+              }
+              h6 {
+                color: $accent-color;
+              }
+            }
+          }
+          &--body {
+            border-bottom: 0.5px solid #ccc;
+            .row {
+              border: 0.5px solid #ccc;
+              border-bottom: none;
+              border-left: none;
+              .column {
+                padding: 1rem;
+                border-left: 0.5px solid #ccc;
+                text-align: center;
+                span {
+                  font-size: 1.5rem;
+                  font-weight: weight(medium);
+                }
+                .fa-check-circle {
+                  color: #01abbf;
+                }
+                .fa-times-circle {
+                  color: #c70f0f;
+                }
+              }
+            }
+          }
+        }
+      }
+      .shopPackages {
+        .innerBlock {
+          margin: 8rem 0;
+
+          h4 {
+            font-size: 3.6rem;
+            color: $primary-color;
+          }
+          h2 {
+            font-size: 3.6rem;
+          }
+          .btn {
+            margin-top: 5rem;
+          }
+          .right {
+            position: relative;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        .innerBlock:nth-child(1) {
+          .right {
+            @include blockImageHover("#{$assetPath}/25_623_23.png");
+          }
+        }
+      }
+      .shopBookLog {
+        .innerBlock {
+          margin: 8rem 0;
+
+          h4 {
+            font-size: 3.6rem;
+            color: $primary-color;
+          }
+          h2 {
+            font-size: 3.6rem;
+          }
+          .btn {
+            margin-top: 5rem;
+          }
+          .right {
+            position: relative;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .shopCourse {
+        & > h3 {
+          margin: 10rem 0;
+          font-size: 3.6rem;
+          color: $primary-color;
+          font-weight: weight(bold);
+        }
+        &__table {
+          span {
+            font-size: 2rem;
+            font-weight: weight(medium);
+            display: block;
+          }
+          .row {
+            display: grid;
+            grid-template: auto/2fr repeat(2, 1fr);
+            text-align: center;
+
+            border: 0.5px solid #ccc;
+            border-bottom: none;
+            border-left: none;
+            .column {
+              padding: 1.3rem 0;
+              @include flexCenter();
+              flex-direction: column;
+              gap: 1rem;
+              border-left: 0.5px solid #ccc;
+              .btn span {
+                font-weight: weight(regular);
+                font-size: 1.5rem;
+              }
+            }
+          }
+          &--header {
+            background: #dedede;
+          }
+          &--body {
+            border-bottom: 0.5px solid #ccc;
+          }
+        }
+        .services {
+          margin: 0;
+        }
+        h5 {
+          color: $primary-color;
+          font-size: 3.6rem;
+          font-weight: weight(medium);
+          text-align: center;
+          margin: 5rem 0;
+        }
+      }
+      .shopServices {
+        .innerBlock {
+          margin: 8rem 0;
+
+          h4 {
+            font-size: 3.6rem;
+            color: $primary-color;
+          }
+          h2 {
+            font-size: 3.6rem;
+          }
+          .btn {
+            margin-top: 5rem;
+          }
+          .right {
+            position: relative;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
