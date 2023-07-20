@@ -10,6 +10,9 @@ import FAQ from "./Components/FAQ";
 import ItemsBuy from "./Components/ItemsBuy";
 import Cart from "./Components/Cart";
 import Login from "./Components/Login";
+import ReturnPolicy from "./Components/ReturnPolicy";
+import OrderInformation from "./Components/OrderInformation";
+import Delievery from "./Components/Delievery";
 
 function App() {
   return (
@@ -23,6 +26,11 @@ function App() {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/ShopCategory" element={<ItemsBuy />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/delivery" element={<Delievery/>} />
+        <Route path="/return_policy" element={<ReturnPolicy />} />
+        <Route path="/oders_information" element={<OrderInformation />} />
+
+
         <Route path="/Cart" element={<Cart />} />
         {/* <Route path="/ExportersCategory" element={<Exporters />} /> */}
         {/* <Route path="/Exporters" element={<ExportersMain />} /> */}

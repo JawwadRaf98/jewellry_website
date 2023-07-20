@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { BsEye } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <Container
@@ -31,40 +33,21 @@ const Footer = () => {
             <Col sm="6" md="3" lg="3" xl="3" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-2">HELP</h6>
               <p>
-                <a href="#!" className="text-reset">
-                  FAQ
-                </a>
+              <Link to="delivery">How We Delivery</Link>
               </p>
+              
               <p>
-                <a href="#!" className="text-reset">
-                  Delivery
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Information
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
+              <Link to="return_policy">
                   Returns Policy
-                </a>
+              </Link>
               </p>
               <p>
-                <a href="#!" className="text-reset">
-                  Make A Return
-                </a>
+              <Link to="oders_information">
+                  How to make an order
+               </Link>
               </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Submit a Fake
-                </a>
-              </p>
+             
+    
             </Col>
 
             <Col sm="6" md="3" lg="3" xl="3" className="mx-auto mb-4">

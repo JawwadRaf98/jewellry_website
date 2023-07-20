@@ -33,6 +33,11 @@ code {
   width: 100%;
 
 }
+.innerPage #myVideo {
+  height: 355px;
+  object-fit: cover;
+  
+}
 #aboutVideo {
   height: 355px;
   object-fit: cover;
