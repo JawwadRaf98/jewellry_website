@@ -3,22 +3,21 @@ import MainVideo from './Home/components/MainVideo'
 import { Col, Container, Image, Row } from "react-bootstrap";
 import useFetch from '../customHooks/useFetch';
 import FaqSkeleton from '../website/skeleton/FaqSkeleton';
+import InnerPageSkeleton from '../website/skeleton/InnerPageSkeleton';
 
 export default function Delievery() {
 
   const {data: pageData, loading, error} = useFetch('getInnerPage/delivery')
 
 
-  if(loading) return <>
-  <div className='innerPage'>
-    <MainVideo />
-  </div>
-  <FaqSkeleton />
-  </>
+  if(loading) return  <InnerPageSkeleton />
 
 let {data} = pageData
 
-let heading  = data.heading === undefined ? "Delivery" : data.heading ;
+let heading  = (data.sub_heaing === "" || data.sub_heaing === undefined)  ? "Delivery" : data.sub_heaing ;
+let image  = (data.image === "" || data.image === undefined ) ? "" : data.image ;
+let subHeading = (data.short_desc === "" || data.short_desc === undefined) ? "" : data.short_desc 
+let desc = ( data.desc === "" || data.desc === undefined) ? "" : data.desc 
 
   return (
     <>
@@ -32,9 +31,9 @@ let heading  = data.heading === undefined ? "Delivery" : data.heading ;
               <div className="p-3 webkit text-white">
              
                 <h3 className="text-3xl">{heading}</h3>
-                <p className="text-lg" style={{ color: "#C7C7C7" }}>
-                  Welcome to LAVISA, where we believe that everyone deserves to
-                  look and feel their best.
+                <p className="text-lg" style={{ color: "#C7C7C7" }}   dangerouslySetInnerHTML={{ __html: subHeading }}>
+                  {/* Welcome to LAVISA, where we believe that everyone deserves to
+                  look and feel their best. */}
                 </p>
               </div>
             </Col>
@@ -44,11 +43,12 @@ let heading  = data.heading === undefined ? "Delivery" : data.heading ;
     </Container>
     <Container>
       <Row className="py-5">
-        <Col lg="8" >
+        <Col lg={image !== "" ? "8" : "12"}  >
           <div className="p-3" >
-            <h2 className="text-3xl text-white font-semibold">{}</h2>
-            <p className="text-sm text-white py-3">
-              Welcome to LAVISA, where we believe that everyone deserves to look
+          <div className='boxexs' dangerouslySetInnerHTML={{ __html: desc }}></div>
+
+          {/*    <p className="text-sm text-white py-3"   dangerouslySetInnerHTML={{ __html: desc }}>
+             Welcome to LAVISA, where we believe that everyone deserves to look
               and feel their best. We are a prestigious jewelry brand recognized
               around the world and are passionate about encouraging people to
               develop their own sense of style and express themselves through
@@ -76,10 +76,19 @@ let heading  = data.heading === undefined ? "Delivery" : data.heading ;
               exquisite rings, attractive bracelets, and much more. Don’t be
               late, discover the perfect piece of fashionable jewelry that
               enhances your sense of self-assurance and beauty.
-              <br />
-            </p>
+              <br /> 
+            </p>*/}
           </div>
         </Col>
+
+        {image !== "" && 
+          <Col lg="4">
+            <div>
+              <Image src={image} />
+            </div>
+          </Col>
+        }
+
         
       </Row>
     </Container>
