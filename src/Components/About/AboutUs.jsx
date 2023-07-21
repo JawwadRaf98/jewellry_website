@@ -10,6 +10,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 
 import { BsPieChart } from "react-icons/bs";
 import { TbBuildingSkyscraper } from "react-icons/tb";
+import InnerPageSkeleton from '../../website/skeleton/InnerPageSkeleton'
 
 
 const AboutUs = () => {
@@ -18,9 +19,14 @@ const AboutUs = () => {
 
   console.log(data)
 
+  if(loading) return <InnerPageSkeleton />
+
+  const {about_us, customer_satisfaction, our_mission, services} = data
+  console.log(services.length)
   return (
     <>
     <MainVideo />
+
       {/* AboutMain */}
       <Container fluid className="bg">
       <div className="aboutContent">
@@ -31,11 +37,10 @@ const AboutUs = () => {
                 {/* <h2 className="text-lg" style={{ color: "#C7C7C7" }}>
                 About Us
                 </h2> */}
-                <h3 className="text-3xl">About Us</h3>
-                <p className="text-lg" style={{ color: "#C7C7C7" }}>
-                  Welcome to LAVISA, where we believe that everyone deserves to
-                  look and feel their best.
-                </p>
+                <h3 className="text-3xl">{about_us.sub_heading}</h3>
+                {/* <p className="text-lg" style={{ color: "#C7C7C7" }}>
+                  {about_us.short_desc}
+                </p> */}
               </div>
             </Col>
           </Row>
@@ -45,11 +50,11 @@ const AboutUs = () => {
 
     <Container>
       <Row className="py-5">
-        <Col lg="8" style={{ background: "#1A1A1A" }}>
+        <Col lg={ about_us.image !== ""  ?  "8" : "12"}  style={{ background: "#1A1A1A" }}>
           <div className="p-3" style={{ background: "#1A1A1A" }}>
-            <h2 className="text-3xl text-white font-semibold">About Us</h2>
-            <p className="text-sm text-white py-3">
-              Welcome to LAVISA, where we believe that everyone deserves to look
+            <h2 className="text-3xl text-white font-semibold">{about_us.sub_heading}</h2>
+            <p className="text-sm text-white py-3"  dangerouslySetInnerHTML={{ __html: about_us.short_desc }}>
+              {/* Welcome to LAVISA, where we believe that everyone deserves to look
               and feel their best. We are a prestigious jewelry brand recognized
               around the world and are passionate about encouraging people to
               develop their own sense of style and express themselves through
@@ -77,35 +82,43 @@ const AboutUs = () => {
               exquisite rings, attractive bracelets, and much more. Don’t be
               late, discover the perfect piece of fashionable jewelry that
               enhances your sense of self-assurance and beauty.
-              <br />
+              <br /> */}
             </p>
           </div>
         </Col>
-        <Col lg="4">
-          <div>
-            <Image
-              style={{ opacity: "0.8" }}
-              src={require("../Assets/aboutimg.png")}
-            />
-          </div>
-        </Col>
+        { 
+        about_us.image !== "" && 
+          <Col lg="4">
+                    <div>
+                      <Image
+                        style={{ opacity: "0.8" }}
+                        src={about_us.image}
+                      />
+                    </div>
+                  </Col>
+        }
+        
       </Row>
     </Container>
 
     {/* Our Mission */}
     <Container>
       <Row className="py-5">
-        <Col lg="4">
-          <div>
-            <Image src={require("../Assets/ourmission.png")} />
-          </div>
-        </Col>
-        <Col lg="8" className="bg-neckles-one">
+
+        {our_mission.image !== "" && 
+          <Col lg="4">
+            <div>
+              <Image src={our_mission.image} />
+            </div>
+          </Col>
+        }
+        
+        <Col lg={ our_mission.image !== ""  ?  "8" : "12"} className="bg-neckles-one">
           <div className="pb-56 pt-3">
             <div className="p-3">
-              <h2 className="text-3xl text-white font-semibold">Our Mission</h2>
-              <p className="text-sm text-white py-3">
-                At LAVISA, we're more than just a jewelry brand - we're on a
+              <h2 className="text-3xl text-white font-semibold">{our_mission.sub_heading}</h2>
+              <p className="text-sm text-white py-3" dangerouslySetInnerHTML={{ __html: our_mission.short_desc }}>
+                {/* At LAVISA, we're more than just a jewelry brand - we're on a
                 mission to empower people to express themselves through
                 high-end, beautifully crafted jewelry. Our commitment to
                 eco-friendly materials, modern designs, and exceptional customer
@@ -114,7 +127,7 @@ const AboutUs = () => {
                 unique sense of style. From the moment you choose LAVISA, you'll
                 experience the elegance and perfection that defines our brand.
                 Join us in our mission to embrace your individuality and
-                celebrate the beauty of high-quality, everyday jewelry.
+                celebrate the beauty of high-quality, everyday jewelry. */}
               </p>
             </div>
           </div>
@@ -123,19 +136,53 @@ const AboutUs = () => {
     </Container>
     
     {/* WhyChooseLAVISA */}
+
+    {
+      services.length > 0 &&
     <Container>
       <Row className="py-5">
         <div className="webkit">
-          <h2 className="text-2xl text-white">Why Choose LAVISA?</h2>
-          <p className="text-sm py-2" style={{ color: "#C7C7C7" }}>
+          <h2 className="text-2xl text-white">Why We Choose Us?</h2>
+          {/* <p className="text-sm py-2" style={{ color: "#C7C7C7" }}>
             We are committed to providing high-end jewelry that will last long.
             Here are some reasons
             <br /> why people choose LAVISA as their go-to jewelry brand
-          </p>
+          </p> */}
         </div>
       </Row>
+
       <Row>
-        <Col lg="3">
+        
+      { 
+        services.map((item, index)=>{
+            const {desc, heading, image} = item
+          return(
+            <Col lg="3" key={index}>
+            <div className="p-3 mt-2 bxxxbx" style={{ background: "#1A1A1A" }}>
+              <div className="webkit text-white icon-new">
+                  {image === "" ?
+                  <a>
+                    <TbBuildingSkyscraper />
+                  </a> :
+                  <Image
+                  className="w-10/12 round-short-image"
+                  src={image}
+                  />
+                
+                }
+                 
+                <h2 className="text-xl pt-3">{heading}</h2>
+                <p className="text-xs py-3" style={{ color: "#C7C7C7" }}  dangerouslySetInnerHTML={{ __html: desc }}>
+                
+                </p>
+              </div>
+            </div>
+          </Col>
+          )
+          
+        })
+      } 
+        {/* <Col lg="3">
           <div className="p-3 mt-2 bxxxbx" style={{ background: "#1A1A1A" }}>
             <div className="webkit text-white icon-new">
               <a>
@@ -231,8 +278,7 @@ const AboutUs = () => {
             </div>
           </div>
         </Col>
-      </Row>
-      <Row className="py-4">
+    
         <Col lg="3">
           <div className="p-3 mt-2 bxxxbx" style={{ background: "#1A1A1A" }}>
             <div className="webkit text-white icon-new">
@@ -326,29 +372,32 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
+    }
+
 
     {/* Customer satisfaction */}
     <Container>
       <Row className="py-5">
         <div className="webkit">
-          <h2 className="text-2xl text-white">Customer Satisfaction</h2>
-          <p className="text-sm py-2" style={{ color: "#C7C7C7" }}>
+          <h2 className="text-2xl text-white">{customer_satisfaction.sub_heading}</h2>
+          {/* <p className="text-sm py-2" style={{ color: "#C7C7C7" }}>
             At LAVISA, we take customer satisfaction very seriously. We want you
             to feel confident and happy
             <br /> with your purchase every time you choose to shop with us.
             <br />
             Here's what you can expect when you choose LAVISA for your jewelry
             needs
-          </p>
+          </p> */}
         </div>
       </Row>
       <Row>
-        <Col lg="8" className="py-2" style={{ background: "#1A1A1A" }}>
+        <Col lg={customer_satisfaction.image !== "" ? "8" : "12"} className="py-2" style={{ background: "#1A1A1A" }}>
           <div className="p-3 textleft">
-            <div className="boxexs">
+            <div className='boxexs' dangerouslySetInnerHTML={{ __html: customer_satisfaction.short_desc }}></div>
+            {/* <div className="boxexs">
               <h2 className="text-lg text-white">Easy Returns and Refunds:</h2>
               <p className="text-sm py-2" style={{ color: "#C7C7C7" }}>
                 We understand that sometimes things don't work out, which is why
@@ -400,7 +449,7 @@ const AboutUs = () => {
                 And if you're happy with your purchase, we'd love it if you left
                 us a review too.
               </p>
-            </div>
+            </div> */}
             <div className="py-2">
               <Image
                 className="w-8/12"
