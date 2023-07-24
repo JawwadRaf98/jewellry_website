@@ -8,7 +8,7 @@ const QuestionCommints = () => {
 
 
   const handleFileChange = (event)=>{
-    console.log(event)
+    setFile(event.target.files[0])
   }
 
   const submitHandler = (values) =>{
@@ -22,6 +22,8 @@ const QuestionCommints = () => {
     email: "",
     issue: "",
     dsc: "",
+    file : "",
+    agree:""
   }
 
   return (
@@ -112,9 +114,19 @@ const QuestionCommints = () => {
                     name="file"
                     class="form-control fileUploader"
                     onChange={handleFileChange}
+                    style={{paddingLeft:"1.5rem"}}
                   />
                 </fieldset>
-      
+
+                <fieldset>
+                  <Field 
+                      type="checkbox"
+                      name="agree"
+                      id = "i_agree"
+                    />
+                    <label for="i_agree" style={{color:"#fff",marginLeft:"1rem"}}>I want to protect my data by signing an NDA</label>
+                </fieldset>
+                <button className="btnyellow w-full">Submit</button>
               </Form>
             </Formik>
 
@@ -205,7 +217,7 @@ const QuestionCommints = () => {
                 Attach file. File size of your documents should not exceed 10MB
               </p>
             </fieldset> */}
-            <Row>
+            {/* <Row>
               <Col lg="12">
                 <div className="p-3">
                   <button className="btnyellow w-full">Submit</button>
@@ -214,7 +226,7 @@ const QuestionCommints = () => {
                   </div>
                 </div>
               </Col>
-            </Row>
+            </Row> */}
           </div>
         </Col>
       </Row>
