@@ -1,7 +1,29 @@
-import React from "react";
+import { Field, Formik, Form } from "formik";
+import React, { useState } from "react";
 import { Col, Container, Row, FormCheck } from "react-bootstrap";
 import { HiArrowDownTray } from "react-icons/hi2";
 const QuestionCommints = () => {
+
+  const [file, setFile] = useState(false);
+
+
+  const handleFileChange = (event)=>{
+    console.log(event)
+  }
+
+  const submitHandler = (values) =>{
+    console.log(values);
+  }
+
+  const iniVal = {
+    fname: "",
+    lname: "",
+    contact: "",
+    email: "",
+    issue: "",
+    dsc: "",
+  }
+
   return (
     <Container>
       <Row className="py-5">
@@ -33,7 +55,72 @@ const QuestionCommints = () => {
         </Col>
         <Col lg="6">
           <div>
-            <fieldset>
+            <Formik initialValues={iniVal} onSubmit={submitHandler}>
+              <Form>
+                <fieldset>
+                  <Field
+                    type="text"
+                    name="fname"
+                    placeholder="Enter your first name"
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field
+                    type="text"
+                    name="lname"
+                    placeholder="Enter your last name"
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field
+                    type="text"
+                    name="contact"
+                    placeholder="Enter your contact no"
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field
+                    type="text"
+                    name="issue"
+                    placeholder="What issue you are facing."
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field
+                    as="textarea"
+                    type="textarea"
+                    name="dsc"
+                    placeholder="Write necessary detail"
+                    class="form-control"
+                  />
+                </fieldset>
+                <fieldset>
+                  <Field 
+                    type="file"
+                    name="file"
+                    class="form-control fileUploader"
+                    onChange={handleFileChange}
+                  />
+                </fieldset>
+      
+              </Form>
+            </Formik>
+
+
+
+            {/* <fieldset>
               <input
                 class="form-control"
                 type="text"
@@ -72,8 +159,8 @@ const QuestionCommints = () => {
                 required=""
                 style={{ width: "100%" }}
               />
-            </fieldset>
-            <fieldset>
+            </fieldset> */}
+            {/* <fieldset>
               <input
                 class="form-control"
                 type="text"
@@ -83,16 +170,16 @@ const QuestionCommints = () => {
                 style={{ width: "100%" }}
               />
             </fieldset>
-            <fieldset>
-              <textarea
+            <fieldset> */}
+              {/* <textarea
                 class="form-control"
                 name="decription"
                 placeholder="Describe your issue in detail."
                 required=""
                 style={{ width: "100%" }}
-              />
-            </fieldset>
-            <fieldset>
+              /> */}
+            {/* </fieldset> */}
+            {/* <fieldset>
               <div class="uploaded-field d-flex flex-wrap align-items-center">
                 <ul class="list-unstyled upload-file-list d-flex flex-wrap mb-0"></ul>
                 <div class="multiple-attach-file mx-auto">
@@ -117,7 +204,7 @@ const QuestionCommints = () => {
               <p className="text-xs" style={{ color: "#F0F0F0" }}>
                 Attach file. File size of your documents should not exceed 10MB
               </p>
-            </fieldset>
+            </fieldset> */}
             <Row>
               <Col lg="12">
                 <div className="p-3">
