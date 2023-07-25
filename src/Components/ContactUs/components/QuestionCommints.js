@@ -1,10 +1,14 @@
 import { Field, Formik, Form } from "formik";
 import React, { useState } from "react";
-import { Col, Container, Row, FormCheck } from "react-bootstrap";
+import { Col, Container, Row, FormCheck, Toast } from "react-bootstrap";
 import { HiArrowDownTray } from "react-icons/hi2";
+import { toast } from "react-toastify";
+import usePost from "../../../customHooks/usePost";
 const QuestionCommints = () => {
 
+  const [res, apiMethod] = usePost();
   const [file, setFile] = useState(false);
+
 
 
   const handleFileChange = (event)=>{
@@ -12,6 +16,27 @@ const QuestionCommints = () => {
   }
 
   const submitHandler = (values) =>{
+    let err = false;
+    let {agree,contact,dsc,email,file,fname,issue,lname } = values
+    if(agree==="" || agree === false){
+      // err = true
+      toast("Please check the aggrement" )
+    }
+
+    if(err === false){
+      let formdata = new FormData();
+      formdata.append("fname", fname);
+      formdata.append("lname", lname);
+      formdata.append("agree", agree);
+      formdata.append("phone", contact);
+      formdata.append("issue", issue);
+      formdata.append("desc", dsc);
+      formdata.append("email", email);
+      formdata.append("submit", lname);
+
+      let bodyContent = formdata;
+      let data = apiMethod("contact", bodyContent);
+    }
     console.log(values);
   }
 
@@ -126,7 +151,10 @@ const QuestionCommints = () => {
                     />
                     <label for="i_agree" style={{color:"#fff",marginLeft:"1rem"}}>I want to protect my data by signing an NDA</label>
                 </fieldset>
-                <button className="btnyellow w-full">Submit</button>
+                <fieldset>
+                  <input type="Submit" className="btnyellow w-full" value={"Submit"} />
+                </fieldset>
+                {/* <button className="btnyellow w-full">Submit</button> */}
               </Form>
             </Formik>
 
