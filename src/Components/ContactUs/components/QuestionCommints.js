@@ -34,6 +34,9 @@ const QuestionCommints = () => {
       formdata.append("email", email);
       formdata.append("submit", lname);
 
+
+      
+
       let bodyContent = formdata;
       let data = apiMethod("contact", bodyContent);
     }

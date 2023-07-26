@@ -13,12 +13,11 @@ import Login from "./Components/Login";
 import ReturnPolicy from "./Components/ReturnPolicy";
 import OrderInformation from "./Components/OrderInformation";
 import Delievery from "./Components/Delievery";
-
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/About" element={<AboutUs />} />
