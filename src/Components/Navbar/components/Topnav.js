@@ -12,6 +12,12 @@ import { BsSearch } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
+import { BiLogOutCircle } from "react-icons/bi";
+
+import { getTokenSession } from "../../../website/utils/common";
+
+
+
 
 import {
   BrowserRouter as Route,
@@ -71,6 +77,14 @@ export const Topnav = () => {
               <Link to="/Cart">
                 <FiShoppingCart />
               </Link>
+              {
+                 getTokenSession() &&
+                 <Link to="/logout">
+                  <BiLogOutCircle />
+                </Link>
+              }
+              
+              
             </div>
           </div>
         </Navbar.Collapse>

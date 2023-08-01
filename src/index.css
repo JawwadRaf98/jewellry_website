@@ -48,6 +48,10 @@ code {
   object-fit: cover;
   width: 100%;
 }
+#aboutVideo.loginForm {
+  height: 100px;
+  
+}
 #cartVideo {
   height: 150px;
   object-fit: cover;
@@ -612,4 +616,40 @@ margin-bottom: 22px;
 .round-short-image {
   width: 75px;
   border-radius: 50%;
+}
+
+/* loggin // signup */
+.loginFormContainer .heading h2{
+  color: #fff;
+  font-size: 25px
+}
+
+.loginFormContainer p{
+  color: #fff;
+  margin: 0.5rem 0;
+  text-align: center;
+  font-size: 18px;
+}
+.loginFormContainer{
+  margin: 2rem 0;
+}
+
+.google-btn-div {
+  border-radius: 6px;
+  background: #fff;
+}
+
+.google-btn-div .singIn {
+  /* border: 1px solid; */
+  width: 100%;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.google-btn-div .singIn svg{
+  font-size: 30px;
 }

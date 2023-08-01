@@ -9,10 +9,12 @@ import Shop from "./Components/Shop";
 import FAQ from "./Components/FAQ";
 import ItemsBuy from "./Components/ItemsBuy";
 import Cart from "./Components/Cart";
-import Login from "./Components/Login";
+import LoginUi from "./Components/Login/index";
 import ReturnPolicy from "./Components/ReturnPolicy";
 import OrderInformation from "./Components/OrderInformation";
 import Delievery from "./Components/Delievery";
+import Profile from "./Profile";
+import Logout from './Components/Logout'
 function App() {
   return (
     <>
@@ -24,7 +26,9 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/ShopCategory" element={<ItemsBuy />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/login" element={<LoginUi />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/delivery" element={<Delievery/>} />
         <Route path="/return_policy" element={<ReturnPolicy />} />
         <Route path="/oders_information" element={<OrderInformation />} />

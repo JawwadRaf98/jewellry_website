@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 
 function LoginGoogle() {
@@ -40,11 +41,9 @@ function LoginGoogle() {
 
 
     return (
-        <div>
-            <h2>React Google Login</h2>
-            <br />
-            <br />
-             <button onClick={() => login()}>Sign in with Google 🚀 </button>
+        <div className='google-btn-div'>
+            
+             <button onClick={() => login()} className='singIn'> <FcGoogle /> Sign in with Google  </button>
         </div>
     )
 }
