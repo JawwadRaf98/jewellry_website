@@ -1,19 +1,50 @@
-import React from 'react';
-import { GoogleLogin } from '@react-oauth/google';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 
 function LoginGoogle() {
-    const responseMessage = (response) => {
-        console.log(response);
+
+    const [ user, setUser ] = useState([]);
+    const [ profile, setProfile ] = useState([]);
+    
+    useEffect(
+        () => {
+            if (user) {
+                axios
+                    .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+                        headers: {
+                            Authorization: `Bearer ${user.access_token}`,
+                            Accept: 'application/json'
+                        }
+                    })
+                    .then((res) => {
+                        setProfile(res.data);
+                    })
+                    .catch((err) => console.log(err));
+            }
+        },
+        [ user ]
+    );
+
+    const login = useGoogleLogin({
+        onSuccess: (codeResponse) => setUser(codeResponse),
+        onError: (error) => console.log('Login Failed:', error)
+    });
+
+    // log out function to log the user out of google and set the profile array to null
+    const logOut = () => {
+        googleLogout();
+        setProfile(null);
     };
-    const errorMessage = (error) => {
-        console.log(error);
-    };
+
+
     return (
         <div>
             <h2>React Google Login</h2>
             <br />
             <br />
-            <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+             <button onClick={() => login()}>Sign in with Google 🚀 </button>
         </div>
     )
 }
