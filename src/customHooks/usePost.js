@@ -23,7 +23,6 @@ const usePost = () => {
         headers,
       })
       .then((res) => {
-        
         setRes({ data: res.data, isLoading: false, error: null });
       })
       .catch((error) => {

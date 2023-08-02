@@ -15,9 +15,13 @@ import OrderInformation from "./Components/OrderInformation";
 import Delievery from "./Components/Delievery";
 import Profile from "./Profile";
 import Logout from './Components/Logout'
+import Signup from "./Components/Signup";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
+    <ToastContainer />
       <Navbar />
         <Routes>
         <Route path="/" element={<Home />} />
@@ -27,6 +31,7 @@ function App() {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/ShopCategory" element={<ItemsBuy />} />
         <Route path="/login" element={<LoginUi />} />
+        <Route path="/signup" element={<Signup /> } />
         <Route path="/logout" element={<Logout />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/delivery" element={<Delievery/>} />

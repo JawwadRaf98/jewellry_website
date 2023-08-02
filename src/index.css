@@ -653,3 +653,9 @@ margin-bottom: 22px;
 .google-btn-div .singIn svg{
   font-size: 30px;
 }
+
+span.sign-up-aggr {
+  /* border: 1px solid; */
+  padding-left: 10px;
+  color: #fff;
+}
