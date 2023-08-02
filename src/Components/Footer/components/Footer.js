@@ -54,14 +54,14 @@ const Footer = () => {
               <h6 className="text-uppercase fw-bold mb-2">MY ACCOUNT</h6>
 
               <p>
-                <a href="#!" className="text-reset">
+              <Link to="login">
                   Login
-                </a>
+               </Link>
               </p>
               <p>
-                <a href="#!" className="text-reset">
-                  Register
-                </a>
+                <Link to="signup">
+                  Registration
+               </Link>
               </p>
             </Col>
 

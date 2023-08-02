@@ -9,17 +9,22 @@ const QuestionCommints = () => {
   const [res, apiMethod] = usePost();
   const [file, setFile] = useState(false);
 
+  const [fileName, setFileName] = useState(false);
+
+
 
 
   const handleFileChange = (event)=>{
+    // console.log(event.target.files[0].name)
+    setFileName(event.target.files[0].name)
     setFile(event.target.files[0])
   }
 
-  const submitHandler = (values) =>{
+  const submitHandler = (values, {resetForm}) =>{
     let err = false;
     let {agree,contact,dsc,email,file,fname,issue,lname } = values
     if(agree==="" || agree === false){
-      // err = true
+      err = true
       toast("Please check the aggrement" )
     }
 
@@ -31,16 +36,20 @@ const QuestionCommints = () => {
       formdata.append("phone", contact);
       formdata.append("issue", issue);
       formdata.append("desc", dsc);
+      formdata.append("file", file);
       formdata.append("email", email);
       formdata.append("submit", lname);
 
-
-      
-
       let bodyContent = formdata;
       let data = apiMethod("contact", bodyContent);
+      // resetForm();
     }
-    console.log(values);
+  }
+  console.log(res)
+  if(res.data !== null){
+    console.log(res.data)
+    toast(res.data.message);
+    res.data = null;
   }
 
   const iniVal = {
@@ -137,6 +146,7 @@ const QuestionCommints = () => {
                   />
                 </fieldset>
                 <fieldset>
+                  
                   <Field 
                     type="file"
                     name="file"
@@ -155,7 +165,7 @@ const QuestionCommints = () => {
                     <label for="i_agree" style={{color:"#fff",marginLeft:"1rem"}}>I want to protect my data by signing an NDA</label>
                 </fieldset>
                 <fieldset>
-                  <input type="Submit" className="btnyellow w-full" value={"Submit"} />
+                  <input type="Submit" className="btnyellow w-full" disabled={res.isLoading} value={res.isLoading ? "Submitting":"Submit"} />
                 </fieldset>
                 {/* <button className="btnyellow w-full">Submit</button> */}
               </Form>

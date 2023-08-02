@@ -161,7 +161,7 @@ var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9
                   {/* </label> */}
                   </fieldset>
                 <fieldset>
-                  <input type="Submit" disabled={res.isLoading} className="btnyellow w-full" value={res.isLoading ? "Submitting":"Submit"} />
+                  <input type="Submit" className="btnyellow w-full"  disabled={res.isLoading} value={res.isLoading ? "Submitting":"Submit"} />
                 </fieldset>
               </Form>
           </Formik>
