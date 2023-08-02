@@ -11,10 +11,14 @@ function LoginGoogle() {
     
     useEffect(
         () => {
-            if (user) {
+            if (user !== undefined || user.access_token === undefined) {
+                
+                console.log(user)
                 axios
                     .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
                         headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
                             Authorization: `Bearer ${user.access_token}`,
                             Accept: 'application/json'
                         }
